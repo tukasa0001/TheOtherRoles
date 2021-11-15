@@ -182,6 +182,8 @@ namespace TheOtherRoles.Patches {
             canUse = couldUse = false;
             if (Swapper.swapper != null && Swapper.swapper == PlayerControl.LocalPlayer)
                 return !__instance.TaskTypes.Any(x => x == TaskTypes.FixLights || x == TaskTypes.FixComms);
+            if (Madmate.madmate != null && Madmate.madmate == PlayerControl.LocalPlayer && !Madmate.MadmateCanFixLigntAndComms)
+                return !__instance.TaskTypes.Any(x => x == TaskTypes.FixLights || x == TaskTypes.FixComms);
             if (__instance.AllowImpostor) return true;
             if (!Helpers.hasFakeTasks(pc.Object)) return true;
             __result = float.MaxValue;
@@ -196,6 +198,8 @@ namespace TheOtherRoles.Patches {
             if (Swapper.swapper != null && Swapper.swapper == PlayerControl.LocalPlayer) {
                 __instance.Close();
             }
+            if(Madmate.madmate != null && Madmate.madmate == PlayerControl.LocalPlayer && !Madmate.MadmateCanFixLigntAndComms)
+                __instance.Close();
         }
     }
 
@@ -206,6 +210,8 @@ namespace TheOtherRoles.Patches {
             if (Swapper.swapper != null && Swapper.swapper == PlayerControl.LocalPlayer) {
                 __instance.Close();
             }
+            if(Madmate.madmate != null && Madmate.madmate == PlayerControl.LocalPlayer && !Madmate.MadmateCanFixLigntAndComms)
+                __instance.Close();
         }
     }
 

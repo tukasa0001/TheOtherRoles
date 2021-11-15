@@ -66,11 +66,13 @@ namespace TheOtherRoles
 
             public static bool MadmateCanVent = true;
             public static bool MadmateCanFixLigntAndComms = false;
+            public static bool hasImpostorVision = true;
 
             public static void clearAndReload() {
                 madmate = null;
                 MadmateCanVent = true;
                 MadmateCanFixLigntAndComms = false;
+                hasImpostorVision = true;
             }
         }
 
