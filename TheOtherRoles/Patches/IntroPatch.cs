@@ -86,6 +86,10 @@ namespace TheOtherRoles.Patches {
                 __instance.TeamTitle.text = "Neutral";
                 __instance.TeamTitle.color = neutralColor;
             }
+            if (roleInfo.roleId == RoleId.Madmate) {
+                __instance.BackgroundBar.material.color = Madmate.color;
+                __instance.TeamTitle.color = Madmate.color;
+            }
         }
 
         [HarmonyPatch(typeof(IntroCutscene), nameof(IntroCutscene.SetUpRoleText))]
