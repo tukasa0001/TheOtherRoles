@@ -376,7 +376,7 @@ namespace TheOtherRoles {
 
             //空き瓶
             madmateSpawnRate = CustomOption.Create(364, cs(Madmate.color, "Madmate"), rates, null, true);
-            madmateCanVent = CustomOption.Create(365, "Madmate Can Vent", true, madmateSpawnRate);
+            madmateCanVent = CustomOption.Create(365, "Madmate Can Enter Vent", true, madmateSpawnRate);
             madmateCanFixLightAndComms = CustomOption.Create(366, "Madmate Can Fix Light And Comms", false, madmateSpawnRate);
             madmateHasImpostorVision = CustomOption.Create(367, "Madmate Has Impostor Vision", true, madmateSpawnRate);
 
