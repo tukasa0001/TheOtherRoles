@@ -1,4 +1,6 @@
 ![eisbison banner](./Images/TOR_logo.png)
+<p align="center">This mod is customized by EmptyBottle.</p>
+<p align="center">このmodはEmptyBottle(空き瓶)によって改造されたものです</p>
 <p align="center">
 This mod is not affiliated with Among Us or Innersloth LLC, and the content contained therein is not endorsed or otherwise sponsored by Innersloth LLC. Portions of the materials contained herein are property of Innersloth LLC. © Innersloth LLC.</p>
 
@@ -26,7 +28,7 @@ Even more roles are coming soon :)
 | [Trickster](#trickster) | [Sheriff](#sheriff) |  |  |
 | [Vampire](#vampire) | [Shifter](#shifter) |  |  |
 | [Warlock](#warlock) | [Snitch](#snitch) |  |  |
-|  | [Spy](#spy) |  |  |
+| [Madmate](#madmate) | [Spy](#spy) |  |  |
 |  | [Swapper](#swapper) |  |  |
 |  | [Time Master](#time-master) |  |  |
 |  |  [Tracker](#tracker) |  |  |
@@ -38,6 +40,7 @@ The [Role Assignment](#role-assignment) sections explains how the roles are bein
 # Releases
 | Among Us - Version| Mod Version | Link |
 |----------|-------------|-----------------|
+| 2021.11.9.5s| v3.0.0-X1.0| [Download](https://github.com/tukasa0001/TheOtherRoles-X/releases/download/v3.0.0-X1.0/TheOtherRoles-X.zip)
 | 2021.11.9.5s| v3.0.0| [Download](https://github.com/Eisbison/TheOtherRoles/releases/download/v3.0.0/TheOtherRoles.zip)
 | 2021.6.30s| v2.9.2| [Download](https://github.com/Eisbison/TheOtherRoles/releases/download/v2.9.2/TheOtherRoles.zip)
 | 2021.6.30s| v2.9.1| [Download](https://github.com/Eisbison/TheOtherRoles/releases/download/v2.9.1/TheOtherRoles.zip)
@@ -708,6 +711,30 @@ Depending on the options, there'll be an arrow pointing towards the current targ
 | Additional Cooldown After Killing Others | Time will be added to the normal impostor cooldown if the Bounty Hunter kills a not-bounty player
 | Show Arrow Pointing Towards The Bounty | If set to true an arrow will appear (only visiable for the Bounty Hunter)
 | Bounty Hunter Arrow Update Interval | Sets how often the position is being updated
+-----------------------
+
+
+## Madmate
+### **Team: Impostors**
+\
+Translated by  [Google Translator](https://github.com/Mallaris)\
+\
+Madmate is a crewmate, but an ally of Impostors. \
+Madmate can't kill and sabotage, but they can enter vents. They can't move in vent.\
+Madmate doesn't know Impostors, and Impostors also don't know Madmate.\
+
+\
+**NOTE:**
+- Impostor, jackal, and sheriff can kill madmate.
+- Madmate can't fix Lights and Comms.
+
+### Game Options
+| Name | Description |
+|----------|:-------------:|
+| Madmate Spawn Chance | -
+| Madmate Can Enter Vent | If set to false, Madmate can't enter vents.
+| Madmate Can Fix Light And Comms | If set to true, Madmate can fix Light and Comms.
+| Madmate Has Impostor Vision | If it set to true, Madmate will gets Impostor's vision.
 -----------------------
 
 
