@@ -186,6 +186,10 @@ namespace TheOtherRoles {
         public static CustomOption noVoteIsSelfVote;
         public static CustomOption hidePlayerNames;
 
+        public static CustomOption madmateSpawnRate;
+        public static CustomOption madmateCanVent;
+        public static CustomOption madmateCanFixLightAndComms;
+
         internal static Dictionary<byte, byte[]> blockedRolePairings = new Dictionary<byte, byte[]>();
 
         public static string cs(Color c, string s) {
@@ -368,6 +372,11 @@ namespace TheOtherRoles {
             mediumCooldown = CustomOption.Create(361, "Medium Questioning Cooldown", 30f, 5f, 120f, 5f, mediumSpawnRate);
             mediumDuration = CustomOption.Create(362, "Medium Questioning Duration", 3f, 0f, 15f, 1f, mediumSpawnRate);
             mediumOneTimeUse = CustomOption.Create(363, "Each Soul Can Only Be Questioned Once", false, mediumSpawnRate);
+
+            //空き瓶
+            madmateSpawnRate = CustomOption.Create(364, cs(Madmate.color, "Madmate"), rates, null, true);
+            madmateCanVent = CustomOption.Create(365, "Madmate Can Vent", true, madmateSpawnRate);
+            madmateCanFixLightAndComms = CustomOption.Create(366, "Madmate Can Fix Light And Comms", false, madmateCanVent);
 
             // Other options
             maxNumberOfMeetings = CustomOption.Create(3, "Number Of Meetings (excluding Mayor meeting)", 10, 0, 15, 1, null, true);

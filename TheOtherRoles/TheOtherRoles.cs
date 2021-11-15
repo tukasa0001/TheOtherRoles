@@ -56,6 +56,22 @@ namespace TheOtherRoles
             Bait.clearAndReload();
             Vulture.clearAndReload();
             Medium.clearAndReload();
+            //空き瓶
+            Madmate.clearAndReload();//safe
+        }
+        //空き瓶
+        public static class Madmate {//safe
+            public static PlayerControl madmate;
+            public static Color color = Palette.ImpostorRed;
+
+            public static bool MadmateCanVent = true;
+            public static bool MadmateCanFixLigntAndComms = false;
+
+            public static void clearAndReload() {
+                madmate = null;
+                MadmateCanVent = true;
+                MadmateCanFixLigntAndComms = false;
+            }
         }
 
         public static class Jester {

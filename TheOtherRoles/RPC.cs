@@ -51,7 +51,9 @@ namespace TheOtherRoles
         Vulture,
         Medium,
         Crewmate,
-        Impostor
+        Impostor,
+        //空き瓶
+        Madmate//safe
     }
 
     enum CustomRPC
@@ -246,6 +248,10 @@ namespace TheOtherRoles
                     case RoleId.Medium:
                         Medium.medium = player;
                         break;
+                    //空き瓶
+                    case RoleId.Madmate://safe
+                        Madmate.madmate = player;
+                        break; 
                     }
                 }
         }
@@ -595,6 +601,9 @@ namespace TheOtherRoles
             if (player == Jester.jester) Jester.clearAndReload();
             if (player == Arsonist.arsonist) Arsonist.clearAndReload();
             if (player == Guesser.guesser) Guesser.clearAndReload();
+
+            //空き瓶
+            if (player == Madmate.madmate) Madmate.clearAndReload();//safe
             if (!ignoreLovers && (player == Lovers.lover1 || player == Lovers.lover2)) { // The whole Lover couple is being erased
                 Lovers.clearAndReload(); 
             }

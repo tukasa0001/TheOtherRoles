@@ -168,7 +168,14 @@ namespace TheOtherRoles {
         }
 
         public static bool hasFakeTasks(this PlayerControl player) {
-            return (player == Jester.jester || player == Jackal.jackal || player == Sidekick.sidekick || player == Arsonist.arsonist || player == Vulture.vulture || Jackal.formerJackals.Contains(player));
+            return (
+                player == Jester.jester ||
+                player == Jackal.jackal ||
+                player == Sidekick.sidekick ||
+                player == Arsonist.arsonist ||
+                player == Vulture.vulture ||
+                player == Madmate.madmate ||
+                Jackal.formerJackals.Contains(player));
         }
 
         public static bool canBeErased(this PlayerControl player) {
@@ -275,6 +282,8 @@ namespace TheOtherRoles {
         public static bool roleCanUseVents(this PlayerControl player) {
             bool roleCouldUse = false;
             if (Engineer.engineer != null && Engineer.engineer == player)
+                roleCouldUse = true;
+            else if (Madmate.MadmateCanVent && Madmate.madmate != null && Madmate.madmate == player)
                 roleCouldUse = true;
             else if (Jackal.canUseVents && Jackal.jackal != null && Jackal.jackal == player)
                 roleCouldUse = true;

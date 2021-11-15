@@ -36,7 +36,7 @@ namespace TheOtherRoles.Patches {
         // Should be implemented using a proper GameOverReason in the future
         public static WinCondition winCondition = WinCondition.Default;
         public static List<PlayerRoleInfo> playerRoles = new List<PlayerRoleInfo>();
-
+        public static GameOverReason ReasonForDebug;
         public static void clear() {
             playerRoles.Clear();
             winCondition = WinCondition.Default;
@@ -75,6 +75,7 @@ namespace TheOtherRoles.Patches {
             if (Jackal.jackal != null) notWinners.Add(Jackal.jackal);
             if (Arsonist.arsonist != null) notWinners.Add(Arsonist.arsonist);
             if (Vulture.vulture != null) notWinners.Add(Vulture.vulture);
+            if (Madmate.madmate != null) notWinners.Add(Madmate.madmate);
             notWinners.AddRange(Jackal.formerJackals);
 
             List<WinningPlayerData> winnersToRemove = new List<WinningPlayerData>();
@@ -90,6 +91,15 @@ namespace TheOtherRoles.Patches {
             bool teamJackalWin = gameOverReason == (GameOverReason)CustomGameOverReason.TeamJackalWin && ((Jackal.jackal != null && !Jackal.jackal.Data.IsDead) || (Sidekick.sidekick != null && !Sidekick.sidekick.Data.IsDead));
             bool vultureWin = Vulture.vulture != null && gameOverReason == (GameOverReason)CustomGameOverReason.VultureWin;
 
+            AdditionalTempData.ReasonForDebug = gameOverReason;
+            
+            //Madmate add
+            if(gameOverReason == GameOverReason.ImpostorByKill ||
+               gameOverReason == GameOverReason.ImpostorBySabotage ||
+               gameOverReason == GameOverReason.ImpostorByVote) {
+                    WinningPlayerData wpd = new WinningPlayerData(Madmate.madmate.Data);
+                    TempData.winners.Add(wpd);
+            }
             // Mini lose
             if (miniLose) {
                 TempData.winners = new Il2CppSystem.Collections.Generic.List<WinningPlayerData>();
@@ -211,6 +221,10 @@ namespace TheOtherRoles.Patches {
                 textRenderer.text = "Mini died";
                 textRenderer.color = Mini.color;
             }
+
+            //ReasonForDebug
+            textRenderer.text = ((int)AdditionalTempData.ReasonForDebug).ToString();
+            textRenderer.color = Palette.ImpostorRed;
 
             if (MapOptions.showRoleSummary) {
                 var position = Camera.main.ViewportToWorldPoint(new Vector3(0f, 1f, Camera.main.nearClipPlane));

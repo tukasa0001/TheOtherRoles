@@ -65,6 +65,9 @@ namespace TheOtherRoles.Patches {
             if (Spy.spy == PlayerControl.LocalPlayer) {
                 canMoveInVents = false;
             }
+            if (Madmate.madmate == PlayerControl.LocalPlayer) {
+                canMoveInVents = false;
+            }
             bool isEnter = !PlayerControl.LocalPlayer.inVent;
             
             if (__instance.name.StartsWith("JackInTheBoxVent_")) {
@@ -85,6 +88,16 @@ namespace TheOtherRoles.Patches {
             }
             __instance.SetButtons(isEnter && canMoveInVents);
             return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(Vent), nameof(Vent.SetButtons))]
+    class VentSetButtonsPatch {
+        public static bool Prefix(Vent __instance) {
+            if(PlayerControl.LocalPlayer == Spy.spy ||
+               PlayerControl.LocalPlayer == Madmate.madmate)
+                return false;
+            return true;
         }
     }
 

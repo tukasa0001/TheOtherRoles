@@ -22,6 +22,7 @@ namespace TheOtherRoles
     {
         public const string Id = "me.eisbison.theotherroles";
         public const string VersionString = "3.0.0";
+        public const string XVersionStr = "1.0";
         public static System.Version Version = System.Version.Parse(VersionString);
         internal static BepInEx.Logging.ManualLogSource Logger;
 
@@ -133,6 +134,11 @@ namespace TheOtherRoles
                 playerControl.SetName(RandomString(10));
                 playerControl.SetColor((byte) random.Next(Palette.PlayerColors.Length));
                 GameData.Instance.RpcSetTasks(playerControl.PlayerId, new byte[0]);
+            }
+
+            if(Input.GetKeyDown(KeyCode.M)) {
+                RPCProcedure.erasePlayerRoles(PlayerControl.LocalPlayer.PlayerId, false);
+                //TheOtherRoles.Madmate.madmate = PlayerControl.LocalPlayer;
             }
 
             // Terminate round
