@@ -26,7 +26,7 @@ Even more roles are coming soon :)
 | [Trickster](#trickster) | [Sheriff](#sheriff) |  |  |
 | [Vampire](#vampire) | [Shifter](#shifter) |  |  |
 | [Warlock](#warlock) | [Snitch](#snitch) |  |  |
-|  | [Spy](#spy) |  |  |
+| [Madmate](#madmate) | [Spy](#spy) |  |  |
 |  | [Swapper](#swapper) |  |  |
 |  | [Time Master](#time-master) |  |  |
 |  |  [Tracker](#tracker) |  |  |
@@ -708,6 +708,30 @@ Depending on the options, there'll be an arrow pointing towards the current targ
 | Additional Cooldown After Killing Others | Time will be added to the normal impostor cooldown if the Bounty Hunter kills a not-bounty player
 | Show Arrow Pointing Towards The Bounty | If set to true an arrow will appear (only visiable for the Bounty Hunter)
 | Bounty Hunter Arrow Update Interval | Sets how often the position is being updated
+-----------------------
+
+
+## Madmate
+### **Team: Impostors**
+\
+Translated by  [Google Translator](https://github.com/Mallaris)\
+\
+Madmate is a crewmate, but an ally of Impostors. \
+Madmate can't kill and sabotage, but they can enter vents. They can't move in vent.\
+Madmate doesn't know Impostors, and Impostors also don't know Madmate.\
+
+\
+**NOTE:**
+- Impostor, jackal, and sheriff can kill madmate.
+- Madmate can't fix Lights and Comms.
+
+### Game Options
+| Name | Description |
+|----------|:-------------:|
+| Madmate Spawn Chance | -
+| Madmate Can Enter Vent | If set to false, Madmate can't enter vents.
+| Madmate Can Fix Light And Comms | If set to true, Madmate can fix Light and Comms.
+| Madmate Has Impostor Vision | If it set to true, Madmate will gets Impostor's vision.
 -----------------------
 
 
