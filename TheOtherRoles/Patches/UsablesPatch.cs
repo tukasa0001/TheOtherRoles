@@ -101,6 +101,25 @@ namespace TheOtherRoles.Patches {
         }
     }
 
+    [HarmonyPatch(typeof(Vent), nameof(Vent.SetOutline))]
+    class VentSetOutlinePatch {
+        public static void Postfix(Vent __instance, [HarmonyArgument(0)] bool on, [HarmonyArgument(1)] bool mainTarget) {
+            bool SetCustomOutline = false;
+            Color CustomOutlineColor = Palette.ImpostorRed;
+            if(Madmate.madmate != null && PlayerControl.LocalPlayer == Madmate.madmate) {
+                SetCustomOutline = true;
+            }
+            if(Spy.spy != null && PlayerControl.LocalPlayer == Spy.spy) {
+                SetCustomOutline = true;
+            }
+            if(SetCustomOutline) {
+                ((Renderer) __instance.myRend).material.SetFloat("_Outline", on ? 1f : 0.0f);
+                ((Renderer) __instance.myRend).material.SetColor("_OutlineColor", CustomOutlineColor);
+                ((Renderer) __instance.myRend).material.SetColor("_AddColor", mainTarget ? CustomOutlineColor : Color.clear);
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.FixedUpdate))]
     class VentButtonVisibilityPatch {
         static void Postfix(PlayerControl __instance) {

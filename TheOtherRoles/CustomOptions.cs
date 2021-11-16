@@ -191,6 +191,9 @@ namespace TheOtherRoles {
         public static CustomOption madmateCanFixLightAndComms;
         public static CustomOption madmateHasImpostorVision;
 
+        public static CustomOption DoubleKillerSpawnRate;
+        public static CustomOption DoubleKillerCooldown;
+
         internal static Dictionary<byte, byte[]> blockedRolePairings = new Dictionary<byte, byte[]>();
 
         public static string cs(Color c, string s) {
@@ -379,6 +382,9 @@ namespace TheOtherRoles {
             madmateCanVent = CustomOption.Create(365, "Madmate Can Enter Vent", true, madmateSpawnRate);
             madmateCanFixLightAndComms = CustomOption.Create(366, "Madmate Can Fix Light And Comms", false, madmateSpawnRate);
             madmateHasImpostorVision = CustomOption.Create(367, "Madmate Has Impostor Vision", true, madmateSpawnRate);
+
+            DoubleKillerSpawnRate = CustomOption.Create(368, cs(DoubleKiller.color, "Double Killer"), rates, null, true);
+            DoubleKillerCooldown = CustomOption.Create(369, "Double Killer Cooldown", 30f, 10f, 60f, 2.5f, DoubleKillerSpawnRate);
 
             // Other options
             maxNumberOfMeetings = CustomOption.Create(3, "Number Of Meetings (excluding Mayor meeting)", 10, 0, 15, 1, null, true);

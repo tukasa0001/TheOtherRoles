@@ -76,6 +76,19 @@ namespace TheOtherRoles
             }
         }
 
+        public static class DoubleKiller {
+            public static PlayerControl doublekiller;
+            public static Color color = Palette.ImpostorRed;
+            public static PlayerControl currentTarget;
+            public static float SecondaryCooldown = 30f;
+
+            public static void clearAndReload() {
+                doublekiller = null;
+                SecondaryCooldown = 30f;
+                currentTarget = null;
+            }
+        }
+
         public static class Jester {
             public static PlayerControl jester;
             public static Color color = new Color32(236, 98, 165, byte.MaxValue);

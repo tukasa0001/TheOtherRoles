@@ -270,6 +270,7 @@ namespace TheOtherRoles.Patches {
             HudManager.Instance.KillButton.SetTarget(target); // Includes setPlayerOutline(target, Palette.ImpstorRed);
         }
 
+
         static void warlockSetTarget() {
             if (Warlock.warlock == null || Warlock.warlock != PlayerControl.LocalPlayer) return;
             if (Warlock.curseVictim != null && (Warlock.curseVictim.Data.Disconnected || Warlock.curseVictim.Data.IsDead)) {

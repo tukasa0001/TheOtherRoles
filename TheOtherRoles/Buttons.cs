@@ -35,6 +35,7 @@ namespace TheOtherRoles
         public static CustomButton arsonistButton;
         public static CustomButton vultureEatButton;
         public static CustomButton mediumButton;
+        public static CustomButton DoubleKillerKillButton;
         public static TMPro.TMP_Text securityGuardButtonScrewsText;
 
         public static void setCustomButtonCooldowns() {
@@ -63,6 +64,8 @@ namespace TheOtherRoles
             arsonistButton.MaxTimer = Arsonist.cooldown;
             vultureEatButton.MaxTimer = Vulture.cooldown;
             mediumButton.MaxTimer = Medium.cooldown;
+            //空き瓶
+            DoubleKillerKillButton.MaxTimer = DoubleKiller.SecondaryCooldown;
 
             timeMasterShieldButton.EffectDuration = TimeMaster.shieldDuration;
             hackerButton.EffectDuration = Hacker.duration;
@@ -73,6 +76,7 @@ namespace TheOtherRoles
             lightsOutButton.EffectDuration = Trickster.lightsOutDuration;
             arsonistButton.EffectDuration = Arsonist.duration;
             mediumButton.EffectDuration = Medium.duration;
+
 
             // Already set the timer to the max, as the button is enabled during the game and not available at the start
             lightsOutButton.Timer = lightsOutButton.MaxTimer;
@@ -911,6 +915,26 @@ namespace TheOtherRoles
                         Medium.souls.Remove(target);
                     }
                 }
+            );
+
+            DoubleKillerKillButton = new CustomButton(
+                () => {
+                    if (!Helpers.handleMurderAttempt(DoubleKiller.doublekiller, DoubleKiller.currentTarget)) return;
+                    byte targetId = HudManager.Instance.KillButton.currentTarget.PlayerId;
+                    MessageWriter killWriter = AmongUsClient.Instance.StartRpcImmediately(PlayerControl.LocalPlayer.NetId, (byte)CustomRPC.DoubleKillerKill, Hazel.SendOption.Reliable, -1);
+                    killWriter.Write(targetId);
+                    AmongUsClient.Instance.FinishRpcImmediately(killWriter);
+                    RPCProcedure.doubleKillerKill(targetId);
+                    DoubleKillerKillButton.Timer = DoubleKillerKillButton.MaxTimer; 
+                    DoubleKiller.currentTarget = null;
+                },
+                () => { return DoubleKiller.doublekiller != null && DoubleKiller.doublekiller == PlayerControl.LocalPlayer && !PlayerControl.LocalPlayer.Data.IsDead; },
+                () => { return HudManager.Instance.KillButton.currentTarget && PlayerControl.LocalPlayer.CanMove; },
+                () => { DoubleKillerKillButton.Timer = DoubleKillerKillButton.MaxTimer;},
+                __instance.KillButton.graphic.sprite,
+                new Vector3(-1.8f, -0.06f, 0),
+                __instance,
+                KeyCode.F
             );
 
 

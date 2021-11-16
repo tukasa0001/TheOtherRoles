@@ -53,7 +53,8 @@ namespace TheOtherRoles
         Crewmate,
         Impostor,
         //空き瓶
-        Madmate//safe
+        Madmate,//safe
+        DoubleKiller
     }
 
     enum CustomRPC
@@ -102,7 +103,8 @@ namespace TheOtherRoles
         SealVent,
         ArsonistWin,
         GuesserShoot,
-        VultureWin
+        VultureWin,
+        DoubleKillerKill
     }
 
     public static class RPCProcedure {
@@ -251,6 +253,9 @@ namespace TheOtherRoles
                     //空き瓶
                     case RoleId.Madmate://safe
                         Madmate.madmate = player;
+                        break;
+                    case RoleId.DoubleKiller:
+                        DoubleKiller.doublekiller = player;
                         break; 
                     }
                 }
@@ -560,6 +565,18 @@ namespace TheOtherRoles
             Sidekick.clearAndReload();
             return;
         }
+
+        //空き瓶
+        public static void doubleKillerKill(byte targetId) {
+            foreach (PlayerControl player in PlayerControl.AllPlayerControls)
+            {
+                if (player.PlayerId == targetId)
+                {
+                    DoubleKiller.doublekiller.MurderPlayer(player);
+                    return;
+                }
+            }
+        }
         
         public static void erasePlayerRoles(byte playerId, bool ignoreLovers = false) {
             PlayerControl player = Helpers.playerById(playerId);
@@ -604,6 +621,7 @@ namespace TheOtherRoles
 
             //空き瓶
             if (player == Madmate.madmate) Madmate.clearAndReload();//safe
+            if (player == DoubleKiller.doublekiller) DoubleKiller.clearAndReload();
             if (!ignoreLovers && (player == Lovers.lover1 || player == Lovers.lover2)) { // The whole Lover couple is being erased
                 Lovers.clearAndReload(); 
             }
@@ -901,6 +919,10 @@ namespace TheOtherRoles
                     break;
                 case (byte)CustomRPC.VultureWin:
                     RPCProcedure.vultureWin();
+                    break;
+                //空き瓶
+                case (byte)CustomRPC.DoubleKillerKill:
+                    RPCProcedure.doubleKillerKill(reader.ReadByte());
                     break;
             }
         }
