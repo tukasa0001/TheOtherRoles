@@ -21,8 +21,12 @@ namespace TheOtherRoles
     public class TheOtherRolesPlugin : BasePlugin
     {
         public const string Id = "me.eisbison.theotherroles";
+<<<<<<< HEAD
         public const string VersionString = "3.0.0";
         public const string XVersionStr = "1.0";
+=======
+        public const string VersionString = "3.1.0";
+>>>>>>> upstream/main
         public static System.Version Version = System.Version.Parse(VersionString);
         internal static BepInEx.Logging.ManualLogSource Logger;
 
