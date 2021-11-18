@@ -40,11 +40,8 @@ The [Role Assignment](#role-assignment) sections explains how the roles are bein
 # Releases
 | Among Us - Version| Mod Version | Link |
 |----------|-------------|-----------------|
-<<<<<<< HEAD
-| 2021.11.9.5s| v3.0.0-X1.0| [Download](https://github.com/tukasa0001/TheOtherRoles-X/releases/download/v3.0.0-X1.0/TheOtherRoles-X.zip)
-=======
+| 2021.11.9.5s| v3.0.0-X1.0 | [Download](https://github.com/tukasa0001/TheOtherRoles-X/releases/download/v3.0.0-X1.0/TheOtherRoles-X.zip)
 | 2021.11.9.5s| v3.1.0| [Download](https://github.com/Eisbison/TheOtherRoles/releases/download/v3.1.0/TheOtherRoles.zip)
->>>>>>> upstream/main
 | 2021.11.9.5s| v3.0.0| [Download](https://github.com/Eisbison/TheOtherRoles/releases/download/v3.0.0/TheOtherRoles.zip)
 | 2021.6.30s| v2.9.2| [Download](https://github.com/Eisbison/TheOtherRoles/releases/download/v2.9.2/TheOtherRoles.zip)
 | 2021.6.30s| v2.9.1| [Download](https://github.com/Eisbison/TheOtherRoles/releases/download/v2.9.1/TheOtherRoles.zip)
