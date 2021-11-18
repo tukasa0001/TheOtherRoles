@@ -7,7 +7,7 @@
   "targets": {
     ".NETStandard,Version=v2.1": {},
     ".NETStandard,Version=v2.1/": {
-      "TheOtherRoles/3.0.0": {
+      "TheOtherRoles/3.1.0": {
         "dependencies": {
           "0Harmony": "2.4.2.0",
           "Assembly-CSharp-firstpass": "3.7.1.6",
@@ -989,7 +989,7 @@
     }
   },
   "libraries": {
-    "TheOtherRoles/3.0.0": {
+    "TheOtherRoles/3.1.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

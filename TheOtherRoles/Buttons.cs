@@ -65,13 +65,10 @@ namespace TheOtherRoles
             arsonistButton.MaxTimer = Arsonist.cooldown;
             vultureEatButton.MaxTimer = Vulture.cooldown;
             mediumButton.MaxTimer = Medium.cooldown;
-<<<<<<< HEAD
             //空き瓶
             DoubleKillerKillButton.MaxTimer = DoubleKiller.SecondaryCooldown;
-=======
-            trackerTrackCorpsesButton.MaxTimer = Tracker.corpsesTrackingCooldown;
->>>>>>> upstream/main
 
+            trackerTrackCorpsesButton.MaxTimer = Tracker.corpsesTrackingCooldown;
             timeMasterShieldButton.EffectDuration = TimeMaster.shieldDuration;
             hackerButton.EffectDuration = Hacker.duration;
             vampireKillButton.EffectDuration = Vampire.delay;
@@ -81,12 +78,7 @@ namespace TheOtherRoles
             lightsOutButton.EffectDuration = Trickster.lightsOutDuration;
             arsonistButton.EffectDuration = Arsonist.duration;
             mediumButton.EffectDuration = Medium.duration;
-<<<<<<< HEAD
-
-
-=======
             trackerTrackCorpsesButton.EffectDuration = Tracker.corpsesTrackingDuration;
->>>>>>> upstream/main
             // Already set the timer to the max, as the button is enabled during the game and not available at the start
             lightsOutButton.Timer = lightsOutButton.MaxTimer;
         }
@@ -937,7 +929,7 @@ namespace TheOtherRoles
 
             DoubleKillerKillButton = new CustomButton(
                 () => {
-                    if (!Helpers.handleMurderAttempt(DoubleKiller.doublekiller, DoubleKiller.currentTarget)) return;
+                    if (!Helpers.checkMuderAttemptAndKill(DoubleKiller.doublekiller, DoubleKiller.currentTarget)) return;
                     byte targetId = HudManager.Instance.KillButton.currentTarget.PlayerId;
                     MessageWriter killWriter = AmongUsClient.Instance.StartRpcImmediately(PlayerControl.LocalPlayer.NetId, (byte)CustomRPC.DoubleKillerKill, Hazel.SendOption.Reliable, -1);
                     killWriter.Write(targetId);

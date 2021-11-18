@@ -10,16 +10,15 @@ namespace TheOtherRoles.Patches {
     [HarmonyPatch]
     public static class CredentialsPatch {
         public static string fullCredentials = 
-<<<<<<< HEAD
+/*<<<<<<< HEAD
 $@"<size=130%><color=#ff351f>TheOtherRoles</color></size> v{TheOtherRolesPlugin.Version.ToString()}-<color=#00bfff>X{TheOtherRolesPlugin.XVersionStr}</color>
 <size=80%>Modded by <color=#FCCE03FF>Eisbison</color>, <color=#FCCE03FF>EndOfFile</color>
-=======
+=======*/
 $@"<size=130%><color=#ff351f>TheOtherRoles</color></size> v{TheOtherRolesPlugin.Version.ToString()}
 <size=60%>Modded by <color=#FCCE03FF>Eisbison</color>, <color=#FCCE03FF>EndOfFile</color>
->>>>>>> upstream/main
 <color=#FCCE03FF>Thunderstorm584</color> & <color=#FCCE03FF>Mallöris</color>
-Button design by <color=#FCCE03FF>Bavari</color></size>
-Customized by <color=#00bfff>tukasa</color>";
+Button design by <color=#FCCE03FF>Bavari</color>
+Customized by <color=#00bfff>tukasa</color></size>";
 
     public static string mainMenuCredentials = 
 $@"Modded by <color=#FCCE03FF>Eisbison</color>, <color=#FCCE03FF>Thunderstorm584</color>, <color=#FCCE03FF>EndOfFile</color> & <color=#FCCE03FF>Mallöris</color>
@@ -36,17 +35,14 @@ Design by <color=#FCCE03FF>Bavari</color>, Customized by <color=#00bfff>tukasa</
 
                 var credentials = UnityEngine.Object.Instantiate<TMPro.TextMeshPro>(__instance.text);
                 credentials.transform.position = new Vector3(0, 0, 0);
-                credentials.SetText($"v{TheOtherRolesPlugin.Version.ToString()}\n<size=30f%>\n</size>{mainMenuCredentials}\n<size=30%>\n</size>{contributorsCredentials}");
+                credentials.SetText($"v{TheOtherRolesPlugin.Version.ToString()}-<color=#00bfff>X{TheOtherRolesPlugin.XVersionStr}</color>\n<size=30f%>\n</size>{mainMenuCredentials}\n<size=30%>\n</size>{contributorsCredentials}");
                 credentials.alignment = TMPro.TextAlignmentOptions.Center;
                 credentials.fontSize *= 0.75f;
 
-<<<<<<< HEAD
-                var version = UnityEngine.Object.Instantiate<TMPro.TextMeshPro>(credentials);
-                version.transform.position = new Vector3(0, -0.25f, 0);
-                version.SetText($"v{TheOtherRolesPlugin.Version.ToString()}-<color=#00bfff>X{TheOtherRolesPlugin.XVersionStr}</color>");
-
-=======
->>>>>>> upstream/main
+                //Delete
+                //var version = UnityEngine.Object.Instantiate<TMPro.TextMeshPro>(credentials);
+                //version.transform.position = new Vector3(0, -0.25f, 0);
+                //version.SetText($"v{TheOtherRolesPlugin.Version.ToString()}-<color=#00bfff>X{TheOtherRolesPlugin.XVersionStr}</color>");
                 credentials.transform.SetParent(amongUsLogo.transform);
             }
         }
